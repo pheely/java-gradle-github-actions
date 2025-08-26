@@ -37,6 +37,12 @@ jobs:
         with:
           name: greeting-service-jar
           path: build/libs/*.jar
+          
+      # 4.1 Check GITHUB_TOKEN
+      - name: Check GITHUB_TOKEN
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}"
+          echo "${{ github.actor }}"
 
       # 5️⃣ Log in to GitHub Container Registry (GHCR)
       - name: Log in to GHCR
